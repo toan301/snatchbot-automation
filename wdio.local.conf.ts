@@ -6,6 +6,9 @@ export const config: WebdriverIO.Config = {
         capabilities: [
             {
                 browserName: "chrome",
+                "wdio:devtoolsOptions": {
+                    headless: true,
+                },
                 "goog:chromeOptions": {
                     args: [
                         "--window-size=1920,1080",
