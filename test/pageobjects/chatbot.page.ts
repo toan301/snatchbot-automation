@@ -41,23 +41,26 @@ export default class ChatBot extends BasePage {
     }
 
     async inputTheQuestion(question: string) {
+        console.log(`Input The Question ${question}`);
         await this.chatBotInput.waitForEnabled();
         await this.chatBotInput.setValue(question);
     }
 
     async setName(name: string) {
+        console.log(`Set Answer Name ${name}`);
         await this.inputTheQuestion(name);
         await this.sendMessage();
         await this.botAnswerOptionButton.click();
     }
     async sendMessage() {
+        console.log(`Send Message}`);
         await this.sendMessageButton.waitForClickable();
         await this.sendMessageButton.click();
     }
 
     async getLatestBotAnswer(question: string) {
+        console.log(`Get Latest Answer}`);
         await this.botTypingMessage.waitForExist({ reverse: true });
-        await this.sleep(5);
         let answerList: string[] = [];
         await this.botReplyMessage.map(async (elm) => {
             const msg = await elm.getText();
