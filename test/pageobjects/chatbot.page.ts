@@ -57,6 +57,7 @@ export default class ChatBot extends BasePage {
 
     async getLatestBotAnswer(question: string) {
         await this.botTypingMessage.waitForExist({ reverse: true });
+        await this.sleep(5);
         let answerList: string[] = [];
         await this.botReplyMessage.map(async (elm) => {
             const msg = await elm.getText();
