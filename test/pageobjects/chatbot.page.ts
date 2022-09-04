@@ -63,9 +63,8 @@ export default class ChatBot extends BasePage {
         const botLatestAnswerLocator = await $(
             `//p[contains(.,'${question}')]/../../../../following-sibling::div/div[@class='message__wrapper']//div[@data-test='message-text']`
         );
-        await (await this.botTypingMessage).waitForExist({ reverse: true });
-        await this.sleep(2);
-        await botLatestAnswerLocator.waitForExist();
+        await (await this.botTypingMessage).waitForDisplayed({ reverse: true });
+        await botLatestAnswerLocator.waitForDisplayed();
         let answerList: string[] = [];
         await this.botReplyMessage.map(async (elm) => {
             const msg = await elm.getText();
@@ -73,7 +72,7 @@ export default class ChatBot extends BasePage {
         });
         let index = answerList.indexOf(question);
         if (index > -1) {
-            answerList.splice(0, index);
+            answerList.splice(0, index - 1);
         } else {
             console.log("Check your question");
         }
