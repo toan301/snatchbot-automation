@@ -6,5 +6,9 @@
   {
     "question": "Costs",
     "answer": "Or are you an enterprise or an IT service wanting to build many white label chatbots?"
+  },
+  {
+    "question": "Features",
+    "answer": "SnatchBot aims to make the potential of chatbots available to all users, including the non technical ones.\n\nA non technical user should be able to create an advanced chatbot without needing to write a single line of code."
   }
 ]
