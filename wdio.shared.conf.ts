@@ -147,14 +147,14 @@ export const config: WebdriverIO.Config = {
             });
         });
     },
-    afterTest: function (
+    afterTest: async function (
         test,
         context,
         { error, result, duration, passed, retries }
     ) {
         // take a screenshot anytime a test fails and throws an error
         if (error) {
-            browser.takeScreenshot();
+            await browser.takeScreenshot();
         }
     },
 };
