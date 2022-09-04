@@ -64,7 +64,8 @@ export default class ChatBot extends BasePage {
             `//p[contains(.,'${question}')]/../../../../following-sibling::div/div[@class='message__wrapper']//div[@data-test='message-text']`
         );
         await (await this.botTypingMessage).waitForExist({ reverse: true });
-        await botLatestAnswerLocator.waitForExist({ timeout: 20000 });
+        await this.sleep(2);
+        await botLatestAnswerLocator.waitForExist();
         let answerList: string[] = [];
         await this.botReplyMessage.map(async (elm) => {
             const msg = await elm.getText();
