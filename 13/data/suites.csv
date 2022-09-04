@@ -1,0 +1,4 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"passed","Sun Sep 04 13:58:55 GMT 2022","Sun Sep 04 13:59:14 GMT 2022","18736","","Chatbot","","Chatbot","input the question Costs","input the question Costs",""
+"passed","Sun Sep 04 13:59:14 GMT 2022","Sun Sep 04 13:59:32 GMT 2022","17651","","Chatbot","","Chatbot","input the question Features","input the question Features",""
+"passed","Sun Sep 04 13:58:35 GMT 2022","Sun Sep 04 13:58:55 GMT 2022","20241","","Chatbot","","Chatbot","input the question Explain chatbots","input the question Explain chatbots",""
