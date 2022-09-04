@@ -53,14 +53,18 @@ export default class ChatBot extends BasePage {
         await this.botAnswerOptionButton.click();
     }
     async sendMessage() {
-        console.log(`Send Message}`);
+        console.log(`Send Message`);
         await this.sendMessageButton.waitForClickable();
         await this.sendMessageButton.click();
     }
 
     async getLatestBotAnswer(question: string) {
-        console.log(`Get Latest Answer}`);
-        await this.botTypingMessage.waitForExist({ reverse: true });
+        console.log(`Get Latest Answer`);
+        const botLatestAnswerLocator = await $(
+            `//p[contains(.,'${question}')]/../../../../following-sibling::div/div[@class='message__wrapper']//div[@data-test='message-text']`
+        );
+        await (await this.botTypingMessage).waitForExist({ reverse: true });
+        await botLatestAnswerLocator.waitForExist({ timeout: 20000 });
         let answerList: string[] = [];
         await this.botReplyMessage.map(async (elm) => {
             const msg = await elm.getText();
